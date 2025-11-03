@@ -93,7 +93,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // Need to add in the sid for Robert Dylan.  Use sid: 123
         // YOUR CODE STARTS HERE
 
-        String sql = "INSERT INTO student (sid, fName, lName) VALUES (123, 'Robert' 'Dylan')";
+        String sql = "INSERT INTO student (sid, fName, lName) VALUES (123, 'Robert', 'Dylan')";
 
         // YOUR CODE ENDS HERE
          System.out.println(jdbcTemplate.update(sql));
