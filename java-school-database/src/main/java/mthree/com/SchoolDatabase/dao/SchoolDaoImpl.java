@@ -78,9 +78,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // YOUR CODE STARTS HERE
 
         String sql = "SELECT course.courseCode, course.courseDesc, " +
-                "(SELECT COUNT(DISTINCT student_id) " +
-                " FROM course_student " +
-                " AS numStudents " +
+                "(SELECT COUNT(DISTINCT student_id) FROM course_student) numStudents " +
                 "FROM course";
 
         // YOUR CODE ENDS HERE
