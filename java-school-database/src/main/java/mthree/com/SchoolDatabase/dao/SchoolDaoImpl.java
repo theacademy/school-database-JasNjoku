@@ -77,13 +77,11 @@ public class SchoolDaoImpl implements SchoolDao {
         // Name the aggregate field `numStudents`.
         // YOUR CODE STARTS HERE
 
-        String sql =
-                "SELECT c.cid, c.courseCode, c.courseDesc, " +
-                        "COUNT(cs.student_id) AS numStudents " +
-                        "FROM course c " +
-                        "LEFT JOIN course_student cs ON c.cid = cs.course_id " +
-                        "GROUP BY c.cid, c.courseCode, c.courseDesc " +
-                        "ORDER BY c.courseCode";
+        String sql = " SELECT c.courseCode, c.courseDesc, " +
+                "COUNT(DISTINCT cs.student_id) AS numStudents " +
+                "FROM course c LEFT JOIN course_student cs ON c.cid = cs.course_id " +
+                "GROUP BY c.cid, c.courseCode, c.courseDesc " +
+                "ORDER BY c.courseCode" ;
 
         // YOUR CODE ENDS HERE
         return jdbcTemplate.query(sql, new StudentCountMapper());
